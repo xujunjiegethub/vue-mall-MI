@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<style>
+	*{
+		margin:0px;
+		padding: 0px;
+		list-style: none;
+	}
+	#footer{
+		height: 115px;
+		background: url(img/01.jpg) no-repeat center;
+		background-size: 100%;
+		position: relative;
+	}
+	#footer .title{
+		width: 100%;
+		height: 50px;
+		position: absolute;
+		bottom: 0px;	
+	}
+	#footer .title .title-img1{
+		margin-top:5px;
+		margin-left: 10px;
+		padding: 1px;
+		background: white;
+		width: 100px;
+		height: 35px;
+		float:left;
+	}
+	#footer .title .title-img1 img{
+		display: inline-block;
+		width: 100px;
+		height: 35px;
+	}
+	#footer .title .characters{
+		float: left;
+		margin-left: 5px;
+		margin-top:5px;
+	}
+	#footer .title .characters>p{
+		font-size: 14px;
+		color:white;
+	}
+	#footer .title .characters div img{
+		width: 50px;
+		height: 15px;
+		vertical-align: middle;
+
+	}
+	#footer .title .characters div p{
+		display: inline-block;
+		font-size: 12px;
+		color:#dfdfdf;
+	}
+	#footer .title .follow{
+		float:right;
+		width: 60px;
+		height: 20px;
+		background: red;
+		line-height: 20px;
+		text-align: center;
+		color:white;
+		padding: 3px;
+		border-radius: 5px;
+		margin:10px;	
+	}
+	.titledata ul{
+		display: -webkit-box;
+	}
+	.titledata ul li{
+		 -webkit-box-flex: 1;
+		 text-align: center;
+		 padding-top:8px;
+		 padding-bottom: 8px;
+	}
+	.titledata ul li p{
+		font-size: 12px;
+	}
+	.color{
+		background: #f8f8f8;
+		width: 100%;
+		height: 12px;
+	}
+	.img a img{
+		width: 100%;
+		display: inline-block;
+	}
+	.img div{
+		padding: 10px;
+	}
+	.img2 a img{
+		width: 100%;
+		display: inline-block;
+		padding-left:10px;
+	}
+	.list ul{
+		display: -webkit-box;
+	}
+	.list ul li{
+		webkit-box-flex: 1;
+	}
+	.list ul li img{
+		width: 90px;
+		
+	}
+	.new{
+		padding: 10px;
+	}
+	.new .list2 ul li a img{
+		width: 50%;
+		float:left;
+		display: inline-block;
+	}
+	.hot{
+		padding: 10px;
+	}
+	.hot .title img{
+		display: inline-block;
+		width: 100%;
+	}
+	.list2 ul:after{
+		clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;
+	}
+	.hot .list3 ul li a img{
+		width: 50%;
+		float:left;
+		display: inline-block;
+	}
+	.list3 ul:after{
+		clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;
+	}
+	.iphone{
+		padding: 10px;
+	}
+	.iphone .title img{
+		display: inline-block;
+		width: 100%;
+	}
+	.iphone .list4 ul li a img{
+		width: 50%;
+		float:left;
+		display: inline-block;
+	}
+	.list4 ul:after{
+		clear:both;content:'.';display:block;width: 0;height: 0;visibility:hidden;
+	}
+
+
+
+
+	.footer1 div{
+		margin: 10px;
+		font-size: 12px;
+		
+	}
+	.footer1 .div2{
+		padding-top: 0px;
+
+	}
+	.footer1 .div1{
+		padding-bottom: 8px;
+		border-bottom: 1px solid #dfdfdf;
+	}
+	.footer1 .div2 img{
+		display: inline-block;
+		float: right;
+		width: 20px;
+
+	}
+	.footer2 div{
+		margin: 10px;
+		font-size: 12px;
+		
+	}
+	.footer2 div span{
+		display: inline-block;
+		padding-left: 30px;
+		color: gray;
+	}
+	.footer2 .div1{
+		padding-bottom: 8px;
+		border-bottom: 1px solid #dfdfdf;
+	}
+	.footer3 div{
+		margin: 10px;
+		font-size: 14px;
+	}
+	.footer4{
+		background: #f8f8f8;
+		height: 80px;
+	}
+	.footer4 ul li{
+		padding: 2px;
+		text-align: center;
+		margin-left: 15px;
+		margin-right: 15px;
+		margin-bottom: 15px;
+		float:left;
+		width: 150px;
+		background: white;
+		font-size: 14px;
+		box-shadow:0px 1px 1px orange;
+	}
+
+	.switch{
+		border-bottom: 1px solid orange;
+		color:orange;
+	}
+	
+	</style>
+	<script type="text/javascript" src="vue2.js"></script>
+</head>
+<body>
+
+	<div id="app">
+		
+		<header id='footer'>
+			<div class='title'>
+				<div class='title-img1'>
+					<img src="img/02.jpg" alt="">
+				</div>
+				<div class='characters'>
+					<p>小米官方旗舰店</p>
+					<div>
+						<img src="img/icon/2.png" alt="">
+						<p>{{follow}}万人关注</p>
+					</div>
+				</div>
+				<div class="follow">
+					<p>关注</p>
+				</div>
+				
+			</div>
+		</header>
+
+		<section class="titledata">
+			<ul>
+				<li class="switch">
+					<div>{{title[0]}}</div>
+					<p>全部商品</p>
+				</li>
+				<li>
+					<div>{{title[1]}}</div>
+					<p>上新</p>
+				</li>
+				<li>
+					<div>{{title[2]}}</div>
+					<p>热销</p>
+				</li>
+			</ul>
+		</section>
+		<div class='color'></div>
+
+		<section class="img">
+			<a href="">
+				<div>
+					<img src="img/03.jpg" alt="">
+				</div>
+				
+			</a>
+		</section>
+		<div class='color'></div>
+		<section class="img2">
+			<a href="">
+				<img src="img/04.jpg" alt="">
+			</a>
+		</section>
+
+		<section class="list">
+			<ul>
+				<li>
+					<img src="img/05.jpg" alt="">
+				</li>
+				<li>
+					<img src="img/06.jpg" alt="">
+				</li>
+				<li>
+					<img src="img/07.jpg" alt="">
+				</li>
+				<li>
+					<img src="img/08.jpg" alt="">
+				</li>
+			</ul>
+		</section>
+		<div class='color'></div>
+
+		<section class="new">
+			<div class="img">
+				<a href="">
+					<img src="img/09.jpg" alt="">
+				</a>
+			</div>
+			<div class="list2">
+				<ul class="both">
+					<li>
+						<a href=""><img src="img/10.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/11.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/12.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/13.jpg" alt=""></a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<div class='color'></div>
+
+		<section class="hot">
+			<div class="title">
+				<a href="">
+					<img src="img/14.jpg" alt="">
+				</a>
+			</div>
+			<div class="list3">
+				<ul>
+					<li>
+						<a href=""><img src="img/15.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/16.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/17.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/18.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/19.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/20.jpg" alt=""></a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<div class='color'></div>
+
+		<section class="iphone">
+			<div class="title">
+				<a href="">
+					<img src="img/21.jpg" alt="">
+				</a>
+			</div>
+			<div class="list4">
+				<ul>
+					<li>
+						<a href=""><img src="img/22.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/23.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/24.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/25.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/26.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/27.jpg" alt=""></a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<div class='color'></div>
+
+		<footer class="footer1">
+				<div class="div1">联系客服</div>
+				<div class="div2">店铺二维码<img src="img/5561b495Ne275b005.png" alt=""></div>
+		</footer>
+		<div class='color'></div>
+
+		<footer class="footer2">
+				<div class="div1">店铺简介<span>官方授权/手机/电视/笔记本/只能硬件</span></div>
+				<div class="div2">开店时间<span>2015-4-29</span></div>
+		</footer>
+		<div class='color'></div>
+
+		<footer class="footer3">
+				<div class="div1">授权品牌</div>
+		</footer>
+		<div class='color'></div>
+
+		<footer class="footer4">
+				<ul>
+					<li>小米 (MI)</li>
+					<li>九号机器人 (nine..</li>
+					<li>米家 (MIJIA)</li>
+					<li>iHealth</li>
+				</ul>
+		</footer>
+		<div class='color'></div>
+
+		</div>
+
+		
+	
+	<script>
+	
+
+	</script>
+	
+</body>
+</html>

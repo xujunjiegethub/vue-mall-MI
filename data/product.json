@@ -1,0 +1,19 @@
+{
+	"title":[
+				{"msg":"商品","clickswitch":true},
+				{"msg":"详情","clickswitch":false},
+				{"msg":"参数","clickswitch":false}
+			],
+
+	"img":[
+				{"jpg":"img/detail/img/01.jpg"},
+				{"jpg":"img/detail/img/02.jpg"},
+				{"jpg":"img/detail/img/03.jpg"},
+				{"jpg":"img/detail/img/04.jpg"},
+				{"jpg":"img/detail/img/05.jpg"}
+				
+		  ]
+
+
+				
+}

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<link rel="stylesheet" href="css/css.css">
+	<link rel="stylesheet" href="swiper/swiper-3.4.2.min.css">
+	<style>
+		/*滚动条的css样式*/
+		.scroll{
+			position: fixed;
+			bottom: 60px;
+			right:20px;
+			width: 38px;
+			height: 45px;
+			background: yellow;
+			color:white;
+			background: #b2b2b2;
+			line-height: 45px;
+			text-align: center;
+			border-radius: 5px;
+			font-family:serif;
+			opacity:0.8;
+
+		}
+	
+	</style>
+	
+</head>
+<body>
+
+	
+	<div id="app" >
+		<div v-show='changeshow'>
+		<header id='footer' >
+			<div class='title'>
+				<span></span>
+				<div class='title-img1'>
+					<img src="img/02.jpg" alt="">
+				</div>
+				<div class='characters'>
+					<p>小米官方旗舰店</p>
+					<div>
+						<img src="img/icon/2.png" alt="">
+						<p>23万人关注</p>
+					</div>
+				</div>
+				<div class="follow">
+					<p>关注</p>
+				</div>
+			</div>
+		</header>
+
+		<section class="titledata" >
+			<ul>
+				<li v-for='(item,index) in title' 
+				:class='{
+							imgswitch:item.img,
+							switch:item.clickswitch}'
+				@click='clickchange(index)'
+		     	>
+
+					<a :href="item.link">
+						<div>
+							<img v-if='item.img'   :src="'img/icon/' + item.img" alt="">
+							<div v-if='item.msg'>{{item.msg}}</div>
+						</div>
+
+						<p>{{item.name}}</p>
+					</a>	
+				</li>
+			</ul>
+		</section>
+
+		<div class='color'></div>
+		
+		</div>
+		
+		<!-- 渲染多个组件 -->
+		<component :is='view'></component>
+	</div>
+
+	<div class='scroll' id="scroll" style="display:none;">Top</div>
+	
+
+
+	<!-- 定义首页模板 -->
+	<script type="text/template" id="tpl_home">
+		<div>	
+			<section class="img">
+			<a href="">
+				<div>
+					<img src="img/03.jpg" alt="">
+				</div>
+				
+			</a>
+		</section>
+
+		<div class='color'></div>
+		<section class="img2">
+			<a href="#/detail/type/1">
+				<img :src="'img/' + img_top_line.img" alt="">
+			</a>
+		</section>
+
+		<section class="list">
+			<ul>
+				<li  v-for='item in img'>
+					<a :href="'#/detail/type/' + item.id"><img :src="'img/' + item.img" alt=""></a>
+				</li>
+				
+			</ul>
+		</section>
+		<div class='color'></div>
+
+		<section class="new">
+			<div class="img">
+				<a href="#/detail/type/1">
+					<img :src="'img/' + img_new.img" alt="">
+				</a>
+			</div>
+			<div class="list2">
+				<ul class="both">
+					<li v-for="item1 in img_new_list">
+						<a :href="'#/detail/type/' + item1.id"><img :src="'img/' + item1.img" alt=""></a>
+					</li>
+					
+				</ul>
+			</div>
+		</section>
+		<div class='color'></div>
+
+		<section class="hot">
+			<div class="title">
+				<a href="#/detail/type/1">
+					<img :src="'img/' + img_hot.img" alt="">
+				</a>
+			</div>
+			<div class="list3">
+				<ul>
+					<li v-for = 'item2 in img_hot_list'>
+						<a :href="'#/detail/type/' + item2.id"><img :src="'img/' + item2.img" alt=""></a>
+					</li>
+					
+				</ul>
+			</div>
+		</section>
+		<div class='color'></div>
+
+		<section class="iphone">
+			<div class="title">
+				<a href="#/detail/type/1">
+					<img :src="'img/' + img_iphone.img" alt="">
+				</a>
+			</div>
+			<div class="list4">
+				<ul>
+					<li v-for = 'item3 in img_iphone_list'>
+						<a :href="'#/detail/type/' + item3.id"><img :src="'img/' + item3.img" alt=""></a>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<div class='color'></div>
+
+		<footer class="footer1">
+				<div class="div1">联系客服</div>
+				<div class="div2">店铺二维码<img src="img/5561b495Ne275b005.png" alt=""></div>
+		</footer>
+		<div class='color'></div>
+
+		<footer class="footer2">
+				<div class="div1">店铺简介<span>官方授权/手机/电视/笔记本/只能硬件</span></div>
+				<div class="div2">开店时间<span>2015-4-29</span></div>
+		</footer>
+		<div class='color'></div>
+
+		<footer class="footer3">
+				<div class="div1">授权品牌</div>
+		</footer>
+		<div class='color'></div>
+
+		<footer class="footer4">
+				<ul>
+					<li>小米 (MI)</li>
+					<li>九号机器人 (nine..)</li>
+					<li>米家 (MIJIA)</li>
+					<li>iHealth</li>
+				</ul>
+		</footer>
+		<div class='color'></div>
+		
+		</div>
+	</script>
+	
+	<!-- 定义列表页模板 -->
+	<script type="text/template" id="tpl_list">
+		<div class="all">
+		<footer class="all_lists">
+			<div>
+				<ul>
+					<li>推荐</li>
+					<li>销量</li>
+					<li>新品</li>
+					<li>价格</li>
+				</ul>
+			</div>
+		</footer>
+		<section class="all_commodity" v-for='item in data'>
+			<a :href="'#/detail/type/' + item.id">
+				<div class="left">
+					<img :src="'img/list/' + item.img" alt="">
+				</div>
+				<div class="right">
+					<p class="title">&nbsp&nbsp{{item.title}}</p>
+					<p class="price"><strong>{{item.price | itemPrice | itemOrigin}}</strong></p>
+					<p class="evaluate">{{item.evaluate}}条好评&nbsp&nbsp好评{{item.high_opinion}}%</p>
+				</div>
+			</a>
+		</section>
+		<div class="bkg"></div>
+		</div>
+	</script>
+	
+	<!-- 定义上新模板 -->
+	<script type="text/template" id="tpl_list2">
+		<div class="newproduct">
+				<ul>
+					<a :href="'#/detail/type/' + item.id" v-for='item in data'>
+						<li>
+							<div class="img"><img :src="'img/list/' + item.img" alt=""></div>
+							<div class="introduce">
+								<p>{{item.title}}</p>
+								<p class="price"><strong>{{item.price | itemPrice | itemOrigin}}</strong></p>
+							</div>
+						</li>
+					</a>					
+				</ul>
+			</div>
+	</script>
+
+	<!-- 定义详情模板 -->
+	<script type="text/template" id="tpl_detail">
+	 <div>
+		<div class='detail'>
+			<!--固定顶部-->
+				<div class="title">
+					<a href=""><strong>&lt;</strong></a>
+					<a href="javascript:"
+					  v-for='(item,index) in title'
+
+					  :class='{
+							
+							switch:item.clickswitch}'
+					  		@click='clickchange(index)'
+
+
+					  >{{item.msg}}</a>
+				</div>
+
+			<!--商品-->
+				<div class='details' :class="{display:show0}">
+					<div class="swiper-container">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide"><img src="img/detail/01.jpg" alt="" class="swiper-slide"></div>
+		            <div class="swiper-slide"><img src="img/detail/02.jpg" alt="" class="swiper-slide"></div>
+		            <div class="swiper-slide"><img src="img/detail/03.jpg" alt="" class="swiper-slide"></div>
+            
+        		</div>
+     		   <!-- Add Pagination -->
+       			 <div class="swiper-pagination"></div>
+   			 </div>
+
+					<section class='information'>
+						<div class="top">{{top}}
+							
+						</div>
+						<div class="price"><strong>{{price | itemPrice | itemOrigin}}</strong></div>
+						<div class="bottom">
+							{{msg}}
+								<a href="">{{msg1}}</a>
+						</div>
+					</section>
+
+					<section class='white'>
+						<p>{{white}}</p>
+					</section>
+
+					<section class="sales">
+						<p>{{sales}} <span>{{salesspan}}</span> {{salesspan1}}</p>
+						<p><span>{{discount}}</span> {{discount1}}</p>
+					</section>
+					
+					<section class='null'>
+						继续拖动，查看详情
+					</section>
+				</div>
+
+			<!--固定底部-->
+				<footer class='footer'>
+					<p>总计：<span>¥1999.00</span></p><p>立即购买</p>
+				</footer>
+
+			</div>
+
+			<!--详情-->
+				<div class="imges"  v-for='item in img' :class="{display:show1}">
+					<img :src="item.jpg" alt="">
+					
+				</div>
+
+			<!--参数-->	
+					<div class='parameter' :class="{display:show2}">
+						<section>
+							<ul class='Specifications'>
+								<li>规格</li>
+								<li>
+									<div class="gray">整车尺寸</div>
+									<div>
+										<p>整车尺寸:折叠前:约 1080mm * 430mm * 11400mm;</p>
+										<p>整车尺寸:折叠前:约 1080mm * 430mm * 11400mm;</p>
+									</div>
+								</li>
+								<li>
+									<div class="gray">车身自重 <span>12.5kg</span></div>
+								</li>
+							</ul>
+
+							<ul>
+								<li>主体</li>
+								<li>品牌<span>小米</span></li>
+								<li>产品型号<span>M365</span></li>
+								<li>主要材质<span>航空级铝合金</span></li>
+							</ul>
+							<ul>
+								<li>环境</li>
+								<li>IP等级<span id='dengji'>54</span></li>
+								<li>几线爬坡<span>约14%</span></li>
+							</ul>
+							<ul>
+								<li>电机</li>
+								<li>轮胎尺寸<span>8.5英寸</span></li>
+								<li>动力参数<span>电动机额定功率：250w</span></li>
+								<li>极限承重<span>100kg</span></li>
+								<li>最高时速<span>25km/h,节能模式为18km/h</span></li>
+							</ul>
+							<ul>
+								<li>电池</li>
+								<li>续航里程<span>约30公里</span></li>
+								<li>充电时间<span>约5.5小时</span></li>
+							</ul>
+							<div class="bottom">
+								左右滑动，查看其它信息
+							</div>
+						</section>
+					</div>
+		</div>
+	</script>
+	
+
+
+
+
+	<script type="text/javascript" src="js/vue2.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script src="swiper/swiper-3.4.2.min.js"></script>
+	
+  
+</body>
+</html>
