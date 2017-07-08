@@ -19,7 +19,7 @@ node环境下执行:
 <img src="./preview/03.png">
 
 #### 商品页
-<img src="./preview/04" title="商城页">
+<img src="./preview/04.png" title="商城页">
 上新页
 <img src="./preview/05.png">
 
